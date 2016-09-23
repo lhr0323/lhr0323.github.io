@@ -84,37 +84,40 @@
 
 
 
-<meta name="description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##下面是经验   首先要有git 和github账号  这里我就不介绍了   安装node.js然后是hexo安装
+<meta name="description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##   1.下面是经验
+ 1.首先要有git 和github账号  这里我就不介绍了
+  2.安装node.js然后是hexo安装
+
 进入blog文件夹，右键点击Git Bash Here。
 
 安装Hexo    
 
-npm install hexo-cli -g
-
-初始化b">
+npm install hexo-cli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建博客">
 <meta property="og:url" content="http://baidu.com/2016/09/23/创建博客/index.html">
 <meta property="og:site_name" content="lhr">
-<meta property="og:description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##下面是经验   首先要有git 和github账号  这里我就不介绍了   安装node.js然后是hexo安装
+<meta property="og:description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##   1.下面是经验
+ 1.首先要有git 和github账号  这里我就不介绍了
+  2.安装node.js然后是hexo安装
+
 进入blog文件夹，右键点击Git Bash Here。
 
 安装Hexo    
 
-npm install hexo-cli -g
-
-初始化b">
-<meta property="og:updated_time" content="2016-09-23T14:06:47.023Z">
+npm install hexo-cli">
+<meta property="og:updated_time" content="2016-09-23T14:25:45.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建博客">
-<meta name="twitter:description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##下面是经验   首先要有git 和github账号  这里我就不介绍了   安装node.js然后是hexo安装
+<meta name="twitter:description" content="##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##   1.下面是经验
+ 1.首先要有git 和github账号  这里我就不介绍了
+  2.安装node.js然后是hexo安装
+
 进入blog文件夹，右键点击Git Bash Here。
 
 安装Hexo    
 
-npm install hexo-cli -g
-
-初始化b">
+npm install hexo-cli">
 
 
 
@@ -346,8 +349,11 @@ npm install hexo-cli -g
       
 
       
-        <p>##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##<br>下面是经验<br>   首先要有git 和github账号  这里我就不介绍了<br>   安装node.js然后是hexo安装</p>
-<pre><code>进入blog文件夹，右键点击Git Bash Here。
+        <p>##最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客 ##<br>   1.下面是经验</p>
+<pre><code> 1.首先要有git 和github账号  这里我就不介绍了
+  2.安装node.js然后是hexo安装
+
+进入blog文件夹，右键点击Git Bash Here。
 
 安装Hexo    
 
@@ -366,28 +372,20 @@ npm install
 hexo s
 
 在浏览器中打开http://localhost:4000，成功的话即可看到博客页面，至此安装就完成了。
+</code></pre><ol>
+<li><p>然后是github和hexo的连接</p>
+<p>首先建立仓库</p>
+<pre><code>your_user_name.github.io，固定写法
+</code></pre><p> 在hexo文件中找到_config.yml<br> 找到这一行deploy:</p>
+<p>type: git</p>
+<p>repo: <a href="https://github.com/leopardpan/leopardpan.github.io.git" target="_blank" rel="external">https://github.com/leopardpan/leopardpan.github.io.git</a></p>
+<p>branch: master<br>  修改成这个样子</p>
+<pre><code>然后执行命令：
+  npm install hexo-deployer-git --save
+</code></pre><p>   然后git执行<br>  hexo deploy<br>至此访问htt</p>
+</li>
+</ol>
 
-然后是github和hexo的连接
-
- 首先建立仓库
-
-     your_user_name.github.io，固定写法
-
-  在hexo文件中找到_config.yml 
-  找到这一行deploy:
-
- type: git
-
- repo: https://github.com/leopardpan/leopardpan.github.io.git
-
- branch: master
-   修改成这个样子
-     然后执行命令：
-       npm install hexo-deployer-git --save
-    然后git执行
-   hexo deploy
-至此访问htt
-</code></pre>
       
     </div>
 
