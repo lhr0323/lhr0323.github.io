@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://lhr0323.com/2016/09/25/csapp学习笔记/index.html">
 <meta property="og:site_name" content="lhr">
 <meta property="og:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
-<meta property="og:updated_time" content="2016-09-25T06:32:53.583Z">
+<meta property="og:updated_time" content="2016-09-25T06:56:36.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="csapp学习笔记">
 <meta name="twitter:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
@@ -339,7 +339,7 @@
       
         <p>csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西<br><a id="more"></a></p>
 <h2 id="第一章："><a href="#第一章：" class="headerlink" title="第一章："></a>第一章：</h2><p>从hellow说起了解hellow程序的生命周期  hellow周期是从一个高级C语言程序开始然后每一条C语句都必须被其他程序转化为一系列的低级机器语言指令然后这些指令打包为.exe的可执行程序。<br>1.1 信息就是位+上下文<br>系统中的所有信息—包括磁盘文件 , 存储器中的程序 ,存储器中存放的用户数据， 网络上传送的数据 都只是一串bit表示的而已。区分 不同的数据对象的唯一方法是我们读到这些数据对象的上下文。<br>1.2 程序被其他程序翻译称不同格式</p>
-<p>预处理器，编译器，汇编器，链接器一起构成了 编译系统(compliation system)<br>预处理阶段<br>        预处理器（cpp)根据以字符#开头的命令，修改原始的C程序.得带另一个C程序，通常以.i为后缀<br>编译阶段<br>        编译器(ccl) 将文本文件hello.i翻译成文本文件hello.s，它包含一个汇编程序。</p>
+<p>预处理器，编译器，汇编器，链接器一起构成了 编译系统(compliation system)<br>预处理阶段<br>        预处理器（cpp)根据以字符#开头的命令，修改原始的C程序.s，通常以.i为后缀<br>编译阶段<br>        编译器(ccl) 将文本文件hello.i翻译成文本文件hello.s，它包含一个汇编程序。</p>
 <p>   汇编阶段<br>        汇编器(cs) 将hello.s翻译成机器语言指令， 并把这些命令打包成 可重定位目标程序<br>        并保存到hello.o,是一个 二进制文件</p>
 <p>   链接阶段<br>        hello程序会调用printf函数，而函数早已存在名为printf.o的目标文件中，链接器(Id)负责将它合并到hello.o当中<br>        结果得到hello文件，它是一个可执行目标文件，可以被加载到内存中。</p>
 
@@ -380,6 +380,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/26/排序算法/" rel="prev" title="排序算法">
+                排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -457,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -465,7 +469,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -474,7 +478,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
