@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
+<meta name="description" content="信息储存大多数计算机使用8位的块，或者字节，作为最小的可寻址机器级程序将存储器视为一个非常大的字节数组，称为虚拟存储器。存储器的每个字节由一个唯一的数字表示，称为它的地址所有可能地址的集合称为虚拟地址空间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csapp学习笔记">
-<meta property="og:url" content="http://lhr0323.com/2016/09/25/csapp学习笔记/index.html">
+<meta property="og:title" content="csapp学习笔记2">
+<meta property="og:url" content="http://lhr0323.com/2016/09/26/csapp学习笔记2/index.html">
 <meta property="og:site_name" content="lhr">
-<meta property="og:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
-<meta property="og:updated_time" content="2016-09-25T06:56:36.635Z">
+<meta property="og:description" content="信息储存大多数计算机使用8位的块，或者字节，作为最小的可寻址机器级程序将存储器视为一个非常大的字节数组，称为虚拟存储器。存储器的每个字节由一个唯一的数字表示，称为它的地址所有可能地址的集合称为虚拟地址空间">
+<meta property="og:updated_time" content="2016-09-26T15:26:30.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="csapp学习笔记">
-<meta name="twitter:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
+<meta name="twitter:title" content="csapp学习笔记2">
+<meta name="twitter:description" content="信息储存大多数计算机使用8位的块，或者字节，作为最小的可寻址机器级程序将存储器视为一个非常大的字节数组，称为虚拟存储器。存储器的每个字节由一个唯一的数字表示，称为它的地址所有可能地址的集合称为虚拟地址空间">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://lhr0323.com/2016/09/25/csapp学习笔记/"/>
+  <link rel="canonical" href="http://lhr0323.com/2016/09/26/csapp学习笔记2/"/>
 
-  <title> csapp学习笔记 | lhr </title>
+  <title> csapp学习笔记2 | lhr </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +266,7 @@
             
             
               
-                csapp学习笔记
+                csapp学习笔记2
               
             
           </h1>
@@ -278,8 +278,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T12:08:45+08:00" content="2016-09-25">
-              2016-09-25
+            <time itemprop="dateCreated" datetime="2016-09-26T22:02:03+08:00" content="2016-09-26">
+              2016-09-26
             </time>
           </span>
 
@@ -308,8 +308,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/25/csapp学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/25/csapp学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2016/09/26/csapp学习笔记2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/csapp学习笔记2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,11 +337,7 @@
       
 
       
-        <p>csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西<br><a id="more"></a></p>
-<h2 id="第一章："><a href="#第一章：" class="headerlink" title="第一章："></a>第一章：</h2><p>从hellow说起了解hellow程序的生命周期  hellow周期是从一个高级C语言程序开始然后每一条C语句都必须被其他程序转化为一系列的低级机器语言指令然后这些指令打包为.exe的可执行程序。<br>1.1 信息就是位+上下文<br>系统中的所有信息—包括磁盘文件 , 存储器中的程序 ,存储器中存放的用户数据， 网络上传送的数据 都只是一串bit表示的而已。区分 不同的数据对象的唯一方法是我们读到这些数据对象的上下文。<br>1.2 程序被其他程序翻译称不同格式</p>
-<p>预处理器，编译器，汇编器，链接器一起构成了 编译系统(compliation system)<br>预处理阶段<br>        预处理器（cpp)根据以字符#开头的命令，修改原始的C程序.s，通常以.i为后缀<br>编译阶段<br>        编译器(ccl) 将文本文件hello.i翻译成文本文件hello.s，它包含一个汇编程序。</p>
-<p>   汇编阶段<br>        汇编器(cs) 将hello.s翻译成机器语言指令， 并把这些命令打包成 可重定位目标程序<br>        并保存到hello.o,是一个 二进制文件</p>
-<p>   链接阶段<br>        hello程序会调用printf函数，而函数早已存在名为printf.o的目标文件中，链接器(Id)负责将它合并到hello.o当中<br>        结果得到hello文件，它是一个可执行目标文件，可以被加载到内存中。</p>
+        <p>信息储存<br>大多数计算机使用8位的块，或者字节，作为最小的可寻址机器级程序将存储器视为一个非常大的字节数组，称为虚拟存储器。存储器的每个字节由一个唯一的数字表示，称为它的地址所有可能地址的集合称为虚拟地址空间<br><a id="more"></a><br>十六进制<br>C/C++规定,16进制数必须以 0x开头。比如 0x1表示一个16进制数。而1则表示一个十进制。另外如：0xff,0xFF,0X102A,等等.其中的x不用区分大小写(注意：0x中的0是数字0,而不是字母O)。此外，C/C++中，10进制数有正负之分。比如12表示正12，而-12表示负12。但8进制和16进制只能表达无符号的正整数，如果在代码中写-0xF2，C/C++并不把它当成一个负数。<br>字<br>字长在同一时间中处理二进制数的位数叫字长。通常称处理字长为8位数据的CPU叫8位CPU，32位CPU就是在同一时间内处理字长为32位的二进制数据。二进制的每一个0或1是组成二进制的最小单位,称为位（bit）字长：一般说来，计算机在同一时间内处理的一组二进制数称为一个计算机的“字”，而这组二进制数的位数就是“字长”。字长与计算机的功能和用途有很大的关系，是计算机的一个重要技术指标。字长直接反映了一台计算机的计算精度，为适应不同的要求及协调运算精度和硬件造价间的关系，大多数计算机均支持变字长运算，即机内可实现半字长、全字长（或单字长）和双倍字长运算。在其他指标相同时，字长越大计算机的处理数据的速度就越快。早期的微机字长一般是8位和16位，386以及更高的处理器大多是32位。目前市面上的计算机的处理器大部分已达到64位<br>寻址和字节顺序<br>小端法：大多数Intel兼容机规则（现在最为常用）<br>  高位放高地址<br>大端法:IBM 和Sun Microsystems<br>  高位放低地址</p>
 
       
     </div>
@@ -373,16 +369,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/24/关于域名/" rel="next" title="关于域名">
-                <i class="fa fa-chevron-left"></i> 关于域名
+              <a href="/2016/09/26/排序算法/" rel="next" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/26/排序算法/" rel="prev" title="排序算法">
-                排序算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/26/位向量/" rel="prev" title="位向量">
+                位向量 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -415,8 +411,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/25/csapp学习笔记/"
-           data-title="csapp学习笔记" data-url="http://lhr0323.com/2016/09/25/csapp学习笔记/">
+      <div class="ds-thread" data-thread-key="2016/09/26/csapp学习笔记2/"
+           data-title="csapp学习笔记2" data-url="http://lhr0323.com/2016/09/26/csapp学习笔记2/">
       </div>
     
   </div>
@@ -545,7 +541,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章："><span class="nav-number">1.</span> <span class="nav-text">第一章：</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

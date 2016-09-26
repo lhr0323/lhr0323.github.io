@@ -268,6 +268,265 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/26/位向量/" itemprop="url">
+                  位向量
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T23:27:36+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/26/位向量/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/位向量/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>csapp和编程珠玑中都介绍了位向量的概念<br>一.何为位向量？<br>在许多情况下(如对象为满足或不满足某条性质的情况），用一个二进制位就足够表示一个对象了。但是，不能用一个变量名直接表示一个位（不存在单独为一位的数据类型）。于是，就考虑将多个位组成一个基本数据类型，通过对这个基本数据类型的操作，达到使用位的方法。同时，为了方便，把由位组成的基本数据类型组成数组，这样，就可以对一定范围的位数据集合进行操作。我们把这种形式的数据结构称为位向量。<br> 位图或位向量图作为一个集合，表示的这样的一个数据结构：<br>用字符串 0 1 1 1 0 1 0 0 1 0 0 0 0 1 0 0 0 0 0 0 表示集合 {1,2,3,5,8,13}.<br>位图的应用需要数据有如下的特性:<br>1.输入数据限制在相对较小的范围内;<br>2.数据没有重复;<br>3.除了单一整数外,没有任何其他关联数据<br>假如只有大约1M内存，如何实现对1E7的数据的排序和快速查找呢？<br>如果用一个1E7个元素的数组当然可以，不过着同样对内存的要求很高，同时数组排序。使用位图可以很好的解决这些问题。在现在的计算机中，一个int型的变量占四个字节，如果使用位图，则一个变量可以存储32个数据，有效地降低了占用的内存。<br>经典问题<br>给定一个包含32位整数的顺序文件，它至多只能包含40亿个这样的整数，并且整数的次序是随机的。请查找一个此文件中不存在的32位整数。在有足够内存的情况下，你会如何解决这个问题？如果你可以使用若干外部临时文件但可用主存却只有上百字节，你会如何解决这个问题？<br>若内存足够用则可用位图方式。<br>若内存不够用，可用二分查找的方式。</p>
+<pre><code> #define BITSPERWORD 32//使用基本数据类型为32位，int类型
+ #define SHIFT 5   //与确定位处于哪个数组元素有关
+ #define MASK 0x1F    //与确定位处于数组元素哪一位有关
+ #define N 10000000  //位长度
+ int a[1+N/BITSPERWORD];  //数组长度
+//将对应位置1
+ void set(int i) {
+  a[i&gt;&gt;SHIFT] |=(1&lt;&lt;(i &amp; MASK));
+ }
+ //将对应位置0
+ void clr(int i){
+   a[i&gt;&gt;SHIFT] &amp;=~(1&lt;&lt;(i &amp; MASK));
+  }
+ //判断对应位
+   void test(int i){
+ return a[i&gt;&gt;SHIFT] &amp; (1&lt;&lt;(i &amp; MASK));
+ }
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/26/csapp学习笔记2/" itemprop="url">
+                  csapp学习笔记2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T22:02:03+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/系统/" itemprop="url" rel="index">
+                    <span itemprop="name">系统</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/26/csapp学习笔记2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/csapp学习笔记2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>信息储存<br>大多数计算机使用8位的块，或者字节，作为最小的可寻址机器级程序将存储器视为一个非常大的字节数组，称为虚拟存储器。存储器的每个字节由一个唯一的数字表示，称为它的地址所有可能地址的集合称为虚拟地址空间<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/26/csapp学习笔记2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/26/排序算法/" itemprop="url">
                   排序算法
                 </a>
@@ -613,253 +872,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/24/博客使用系列/" itemprop="url">
-                  博客使用系列
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-24T09:00:54+08:00" content="2016-09-24">
-              2016-09-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/24/博客使用系列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/博客使用系列/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p> 作为一个特别爱折腾的程序员  对这种高大上的博客非常喜欢  这次就来介绍  怎样给博客添加各种小插件让你的博客看起来更酷炫  在这之前我要着重推荐一下markdown他是为程序员和文字编写人员准备的用过之后你会爱不释手 推荐markdownPad 编辑器<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/24/博客使用系列/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/23/创建博客/" itemprop="url">
-                  创建博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T21:33:20+08:00" content="2016-09-23">
-              2016-09-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/23/创建博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/创建博客/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近在想要开个博客打算把自己学的东西写下来 不想用各大门户网站的博客所以选择了  hexo+github  倒腾了自己人生的第一个博客<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/23/创建博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -898,7 +917,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -915,7 +934,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

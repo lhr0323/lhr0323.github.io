@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="csapp," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,15 @@
 
 
 
-<meta name="description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
-<meta property="og:type" content="article">
-<meta property="og:title" content="csapp学习笔记">
-<meta property="og:url" content="http://lhr0323.com/2016/09/25/csapp学习笔记/index.html">
+<meta name="description" content="一个简单的coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lhr">
+<meta property="og:url" content="http://lhr0323.com/tags/位向量/index.html">
 <meta property="og:site_name" content="lhr">
-<meta property="og:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
-<meta property="og:updated_time" content="2016-09-25T06:56:36.635Z">
+<meta property="og:description" content="一个简单的coder">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="csapp学习笔记">
-<meta name="twitter:description" content="csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西">
+<meta name="twitter:title" content="lhr">
+<meta name="twitter:description" content="一个简单的coder">
 
 
 
@@ -114,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://lhr0323.com/2016/09/25/csapp学习笔记/"/>
+  <link rel="canonical" href="http://lhr0323.com/tags/位向量/"/>
 
-  <title> csapp学习笔记 | lhr </title>
+  <title> 标签: 位向量 | lhr </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,167 +244,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                csapp学习笔记
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T12:08:45+08:00" content="2016-09-25">
-              2016-09-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/系统/" itemprop="url" rel="index">
-                    <span itemprop="name">系统</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/25/csapp学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/25/csapp学习笔记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>csapp中文名称《深入理解计算机系统》 对于这个翻译是有问题的应该叫做以程序员的角度理解计算机系统 这本书是将计算机组成原理，操作系统，等书的一部分的导论 以程序员的角度分析这些东西<br><a id="more"></a></p>
-<h2 id="第一章："><a href="#第一章：" class="headerlink" title="第一章："></a>第一章：</h2><p>从hellow说起了解hellow程序的生命周期  hellow周期是从一个高级C语言程序开始然后每一条C语句都必须被其他程序转化为一系列的低级机器语言指令然后这些指令打包为.exe的可执行程序。<br>1.1 信息就是位+上下文<br>系统中的所有信息—包括磁盘文件 , 存储器中的程序 ,存储器中存放的用户数据， 网络上传送的数据 都只是一串bit表示的而已。区分 不同的数据对象的唯一方法是我们读到这些数据对象的上下文。<br>1.2 程序被其他程序翻译称不同格式</p>
-<p>预处理器，编译器，汇编器，链接器一起构成了 编译系统(compliation system)<br>预处理阶段<br>        预处理器（cpp)根据以字符#开头的命令，修改原始的C程序.s，通常以.i为后缀<br>编译阶段<br>        编译器(ccl) 将文本文件hello.i翻译成文本文件hello.s，它包含一个汇编程序。</p>
-<p>   汇编阶段<br>        汇编器(cs) 将hello.s翻译成机器语言指令， 并把这些命令打包成 可重定位目标程序<br>        并保存到hello.o,是一个 二进制文件</p>
-<p>   链接阶段<br>        hello程序会调用printf函数，而函数早已存在名为printf.o的目标文件中，链接器(Id)负责将它合并到hello.o当中<br>        结果得到hello文件，它是一个可执行目标文件，可以被加载到内存中。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        位向量
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2016/09/26/位向量/" itemprop="url">
+              
+                <span itemprop="name">位向量</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-26T23:27:36+08:00"
+              content="2016-09-26" >
+          09-26
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/csapp/" rel="tag">#csapp</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/09/24/关于域名/" rel="next" title="关于域名">
-                <i class="fa fa-chevron-left"></i> 关于域名
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/26/排序算法/" rel="prev" title="排序算法">
-                排序算法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -413,14 +291,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/09/25/csapp学习笔记/"
-           data-title="csapp学习笔记" data-url="http://lhr0323.com/2016/09/25/csapp学习笔记/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -440,17 +310,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -538,17 +399,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章："><span class="nav-number">1.</span> <span class="nav-text">第一章：</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -668,10 +518,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
