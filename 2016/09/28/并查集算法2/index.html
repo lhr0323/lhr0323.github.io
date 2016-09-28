@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="并查集," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="一个简单的coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lhr">
-<meta property="og:url" content="http://lhr0323.com/tags/csapp/index.html">
+<meta name="description" content="上次介绍的修改过的算法quick-union该算法比quick-find算法快，因为他不需要为每对输入遍历整个数组但这种算法也是有问题的假设输入的有序对是0-1,0-2,0-3等，N-1对之后我们的N个触点都处于相同的集合当中且由quick-union算法得到的树的高度为N-1其中0链接到1,1链接到2,2链接到3，如此下去对于整数对0，i,union()操作访问数组的次数为2i+3因此处理N对整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并查集算法2">
+<meta property="og:url" content="http://lhr0323.com/2016/09/28/并查集算法2/index.html">
 <meta property="og:site_name" content="lhr">
-<meta property="og:description" content="一个简单的coder">
+<meta property="og:description" content="上次介绍的修改过的算法quick-union该算法比quick-find算法快，因为他不需要为每对输入遍历整个数组但这种算法也是有问题的假设输入的有序对是0-1,0-2,0-3等，N-1对之后我们的N个触点都处于相同的集合当中且由quick-union算法得到的树的高度为N-1其中0链接到1,1链接到2,2链接到3，如此下去对于整数对0，i,union()操作访问数组的次数为2i+3因此处理N对整">
+<meta property="og:updated_time" content="2016-09-28T13:17:30.919Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lhr">
-<meta name="twitter:description" content="一个简单的coder">
+<meta name="twitter:title" content="并查集算法2">
+<meta name="twitter:description" content="上次介绍的修改过的算法quick-union该算法比quick-find算法快，因为他不需要为每对输入遍历整个数组但这种算法也是有问题的假设输入的有序对是0-1,0-2,0-3等，N-1对之后我们的N个触点都处于相同的集合当中且由quick-union算法得到的树的高度为N-1其中0链接到1,1链接到2,2链接到3，如此下去对于整数对0，i,union()操作访问数组的次数为2i+3因此处理N对整">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://lhr0323.com/tags/csapp/"/>
+  <link rel="canonical" href="http://lhr0323.com/2016/09/28/并查集算法2/"/>
 
-  <title> 标签: csapp | lhr </title>
+  <title> 并查集算法2 | lhr </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,74 +245,197 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        csapp
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/csapp学习笔记2/" itemprop="url">
-              
-                <span itemprop="name">csapp学习笔记2</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T22:02:03+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/25/csapp学习笔记/" itemprop="url">
-              
-                <span itemprop="name">csapp学习笔记</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T12:08:45+08:00"
-              content="2016-09-25" >
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                并查集算法2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-28T20:47:39+08:00" content="2016-09-28">
+              2016-09-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/28/并查集算法2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/并查集算法2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上次介绍的修改过的算法quick-union该算法比quick-find算法快，因为他不需要为每对输入遍历整个数组但这种算法也是有问题的假设输入的有序对是0-1,0-2,0-3等，N-1对之后我们的N个触点都处于相同的集合当中且由quick-union算法得到的树的高度为N-1其中0链接到1,1链接到2,2链接到3，如此下去对于整数对0，i,union()操作访问数组的次数为2i+3因此处理N对整数的总次数为N^2<br><a id="more"></a><br>为了解决这个问题我们又要修改算法与其在Union中随意将一棵树连接到另一棵树，我们会记录每一棵树的大小并总得是将较小的树链接到较大的树我们需要添加一个数组来记录树节点数它能大大的改进算法的效率将他称为加权quick-union算法该算法构造的树远小于未加权的版本所构造的树<br>代码实现</p>
+<pre><code>  public class Weightedqiuckfind()
+  { 
+   private int[] id;
+   private int[] sz;
+   private int  count;
+  public weightedquickfind(int N)
+  {
+   count =N; 
+   id= new int[];
+   for (int i=0;i&lt;N;i++) id[i]=i;
+   sz = new int[N];
+   for (int i=0;i&lt;N;i++)sz[i]=l;
+  }
+  public int count ()
+  {
+   return count；
+  }
+  public boolean connected (int p,int q)
+  {
+   return find(p)== find(q);
+  }
+  public int find(int p)
+  {
+   while(p !=id[p]) p=id[p];
+   return p;
+  }
+  public void union(int p. int q)
+ {
+ int i =find(p);
+ int i =find(q);
+ if(i==j)return ;
+//将小数的根节点连接到大树的根节点
+if（sz[i]&lt;sz[j]） {id[i]=j;sz[j]+= sz[i];}
+ else            {id[j]=i;sz[i]+= sz[j];}
+ count --;
+  }  
+
+ }
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/并查集/" rel="tag">#并查集</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/27/并查集算法/" rel="next" title="并查集算法">
+                <i class="fa fa-chevron-left"></i> 并查集算法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -319,6 +443,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/28/并查集算法2/"
+           data-title="并查集算法2" data-url="http://lhr0323.com/2016/09/28/并查集算法2/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -338,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -427,6 +568,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -546,6 +698,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
