@@ -268,131 +268,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/19/最大子串/" itemprop="url">
-                  最大子串
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-19T21:28:47+08:00" content="2016-12-19">
-              2016-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/19/最大子串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/19/最大子串/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最大子串<br> Longest Substring Without Repeating Characters<br>Given a string, find the length of the longest substring without repeating characters.</p>
-<p>Examples:</p>
-<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
-<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
-<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
-<p>Subscribe to see which companies asked this question</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;  </div><div class="line">public:  </div><div class="line">    int lengthOfLongestSubstring(string s) &#123;  </div><div class="line">        int n = s.length();  </div><div class="line">        int i = 0, j = 0; //i是候选字符串的起点， j是候选字符串的终点。  </div><div class="line">        int max_length = 0;  </div><div class="line">        int cur_length = 0;  </div><div class="line">        bool exist[256] = &#123; false &#125;;  </div><div class="line">        while (j &lt; n) &#123;  </div><div class="line">            if (!exist[s[j]]) &#123;  </div><div class="line">                exist[s[j]] = true;  //遍历过，记录为true  </div><div class="line">                j++;  </div><div class="line">            &#125; else &#123;  </div><div class="line">                while(s[i]!= s[j]) &#123;  </div><div class="line">                    exist[s[i]] = false;   </div><div class="line">                    //新候选字串从第一个重复字符(当s[i] == s[j]时候的i)的后一位开始算，之前的i不算，等效于没有被扫描到，所以设为false.  </div><div class="line">                    i++;  </div><div class="line">                &#125;  </div><div class="line">                i++;  </div><div class="line">                j++;  </div><div class="line">            &#125;  </div><div class="line">            cur_length = j - i;  </div><div class="line">            max_length = max_length &gt; cur_length ? max_length : cur_length;  </div><div class="line">        &#125;  </div><div class="line">        return max_length;  </div><div class="line">    &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/12/19/add-two-number/" itemprop="url">
                   add two number
                 </a>
@@ -859,6 +734,128 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/28/并查集算法2/" itemprop="url">
+                  并查集算法2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-28T20:47:39+08:00" content="2016-09-28">
+              2016-09-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/28/并查集算法2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/并查集算法2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>上次介绍的修改过的算法quick-union该算法比quick-find算法快，因为他不需要为每对输入遍历整个数组但这种算法也是有问题的假设输入的有序对是0-1,0-2,0-3等，N-1对之后我们的N个触点都处于相同的集合当中且由quick-union算法得到的树的高度为N-1其中0链接到1,1链接到2,2链接到3，如此下去对于整数对0，i,union()操作访问数组的次数为2i+3因此处理N对整数的总次数为N^2<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/28/并查集算法2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -904,7 +901,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -996,7 +993,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
