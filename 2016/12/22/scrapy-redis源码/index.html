@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="scrapy," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="充满信心的程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术改变世界">
-<meta property="og:url" content="http://lhr0323.com/index.html">
+<meta name="description" content="调度器理解    
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy-redis源码理解">
+<meta property="og:url" content="http://lhr0323.com/2016/12/22/scrapy-redis源码/index.html">
 <meta property="og:site_name" content="技术改变世界">
-<meta property="og:description" content="充满信心的程序员">
+<meta property="og:description" content="调度器理解    
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
+<meta property="og:updated_time" content="2019-02-26T14:38:37.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术改变世界">
-<meta name="twitter:description" content="充满信心的程序员">
+<meta name="twitter:title" content="scrapy-redis源码理解">
+<meta name="twitter:description" content="调度器理解    
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://lhr0323.com/"/>
+  <link rel="canonical" href="http://lhr0323.com/2016/12/22/scrapy-redis源码/"/>
 
-  <title> 技术改变世界 </title>
+  <title> scrapy-redis源码理解 | 技术改变世界 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -267,130 +269,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/12/25/django/" itemprop="url">
-                  django项目
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-25T10:34:05+08:00" content="2016-12-25">
-              2016-12-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/django/" itemprop="url" rel="index">
-                    <span itemprop="name">django</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/25/django/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/django/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> django项目：在线教育平台<br>通过使用django实现了完整的在线教育平台 首先使用的是django1.9 python2.7  IDE:pycharm<br> 1开发环境搭建 使用的是ython虚拟virtualenv和 virtualenvwrapper<br>2进行需求分析 该系统已将给出前端页面 主要工作就是设计出django app， 然后对每个app设计相应的django model数据表。系统共有四个app， users处理用户相关；courses处理课程相关；organization处理课程机构相关；operation处理用户操作相关  然后是数据库使用的是MySQL数据库navicat管理。<br>3使用xadmin进行后台管理安装配置xadmin<br>4功能实现完成用户注册相关的功能， 包括登录、注册、找回密码等功能， 本章会深入session和cookie的机制以及通过django form对表单进行验证。注册和找回密码会通过图片验证码验证以及通过邮箱验证方式完成<br>5完成课程机构的相关功能， 本章会开始django的templates模板继承机制实现模板的重用。 本章包括分页、筛选、收藏等功能， 会讲到如何通过modelform对表单进行验证和保存。<br>6完成课程相关功能模块开发， 包括课程列表功能实现、课程详情页展示、 课程评论功能和相关课程推荐等功能实现<br>7个人中心和系统全局功能实现、 全局功能包括全局导航栏功能和全局搜索功能的实现。 个人中心功能包括个人信息的展示和修改、 头像修改、密码修改、邮箱修改。 邮箱修改需要通过邮箱验证才能修改。 用户学习的课程展示、 用户的收藏展示以及删除收藏功能，最后是用户的个人消息展示。<br>8 nginx+uwsgi完成线上生成环境的原理  mysql的访问权限以及端口绑定配置，以及将本地数据库直接传输到生成环境 nginx配置一个虚拟主机，及完成域名和ip地址的转发、 nginx的静态文件代理  uwsgi的配置文件的基本配置  。代码上传到github中。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/22/scrapy-redis源码/" itemprop="url">
-                  scrapy-redis源码理解
-                </a>
+                scrapy-redis源码理解
               
             
           </h1>
@@ -445,6 +324,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
         </div>
       </header>
     
@@ -456,410 +340,72 @@
       
 
       
-        
-          
-            <p>   调度器理解    </p>
+        <p>   调度器理解    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div></pre></td><td class="code"><pre><div class="line">class Scheduler(object):</div><div class="line"> </div><div class="line">def __init__(self, dupefilter, jobdir=None, dqclass=None, mqclass=None,</div><div class="line">             logunser=False, stats=None, pqclass=None):</div><div class="line">    self.df = dupefilter</div><div class="line">    self.dqdir = self._dqdir(jobdir)</div><div class="line">    self.pqclass = pqclass</div><div class="line">    self.dqclass = dqclass</div><div class="line">    self.mqclass = mqclass</div><div class="line">    self.logunser = logunser</div><div class="line">    self.stats = stats</div><div class="line">    # 注意在scrpy中优先注意这个方法，此方法是一个钩子 用于访问当前爬虫的配置</div><div class="line">@classmethod</div><div class="line">def from_crawler(cls, crawler):</div><div class="line">    settings = crawler.settings</div><div class="line">    # 获取去重用的类 默认：scrapy.dupefilters.RFPDupeFilter</div><div class="line">    dupefilter_cls = load_object(settings[&apos;DUPEFILTER_CLASS&apos;])</div><div class="line">    # 对去重类进行配置from_settings 在 scrapy.dupefilters.RFPDupeFilter 43行</div><div class="line">    # 这种调用方式对于IDE跳转不是很好  所以需要自己去找</div><div class="line">    # @classmethod</div><div class="line">    # def from_settings(cls, settings):</div><div class="line">    #     debug = settings.getbool(&apos;DUPEFILTER_DEBUG&apos;)</div><div class="line">    #     return cls(job_dir(settings), debug)</div><div class="line">    # 上面就是from_settings方法 其实就是设置工作目录 和是否开启debug</div><div class="line">    dupefilter = dupefilter_cls.from_settings(settings)</div><div class="line">    # 获取优先级队列 类对象 默认：queuelib.pqueue.PriorityQueue</div><div class="line">    pqclass = load_object(settings[&apos;SCHEDULER_PRIORITY_QUEUE&apos;])</div><div class="line">    # 获取磁盘队列 类对象（SCHEDULER使用磁盘存储 重启不会丢失）</div><div class="line">    dqclass = load_object(settings[&apos;SCHEDULER_DISK_QUEUE&apos;])</div><div class="line">    # 获取内存队列 类对象（SCHEDULER使用内存存储 重启会丢失）</div><div class="line">    mqclass = load_object(settings[&apos;SCHEDULER_MEMORY_QUEUE&apos;])</div><div class="line">    # 是否开启debug</div><div class="line">    logunser = settings.getbool(&apos;LOG_UNSERIALIZABLE_REQUESTS&apos;, settings.getbool(&apos;SCHEDULER_DEBUG&apos;))</div><div class="line">    # 将这些参数传递给 __init__方法</div><div class="line">    return cls(dupefilter, jobdir=job_dir(settings), logunser=logunser,</div><div class="line">               stats=crawler.stats, pqclass=pqclass, dqclass=dqclass, mqclass=mqclass)</div><div class="line"> </div><div class="line"> </div><div class="line">def has_pending_requests(self):</div><div class="line">  &quot;&quot;&quot;检查是否有没处理的请求&quot;&quot;&quot;</div><div class="line">    return len(self) &gt; 0</div><div class="line"> </div><div class="line">def open(self, spider):</div><div class="line">  &quot;&quot;&quot;Engine创建完毕之后会调用这个方法&quot;&quot;&quot;</div><div class="line">    self.spider = spider</div><div class="line">    # 创建一个有优先级的内存队列 实例化对象</div><div class="line">    # self.pqclass 默认是：queuelib.pqueue.PriorityQueue</div><div class="line">    # self._newmq 会返回一个内存队列的 实例化对象 在110  111 行</div><div class="line">    self.mqs = self.pqclass(self._newmq)</div><div class="line">    # 如果self.dqdir 有设置 就创建一个磁盘队列 否则self.dqs 为空</div><div class="line">    self.dqs = self._dq() if self.dqdir else None</div><div class="line">    # 获得一个去重实例对象 open 方法是从BaseDupeFilter继承的</div><div class="line">    # 现在我们可以用self.df来去重啦</div><div class="line">    return self.df.open()</div><div class="line"> </div><div class="line">def close(self, reason):</div><div class="line">  &quot;&quot;&quot;当然Engine关闭时&quot;&quot;&quot;</div><div class="line">      # 如果有磁盘队列 则对其进行dump后保存到active.json文件中</div><div class="line">    if self.dqs:</div><div class="line">        prios = self.dqs.close()</div><div class="line">        with open(join(self.dqdir, &apos;active.json&apos;), &apos;w&apos;) as f:</div><div class="line">            json.dump(prios, f)</div><div class="line">    # 然后关闭去重</div><div class="line">    return self.df.close(reason)</div><div class="line"> </div><div class="line">def enqueue_request(self, request):</div><div class="line">  &quot;&quot;&quot;添加一个Requests进调度队列&quot;&quot;&quot;</div><div class="line">      # self.df.request_seen是检查这个Request是否已经请求过了 如果有会返回True</div><div class="line">    if not request.dont_filter and self.df.request_seen(request):</div><div class="line">          # 如果Request的dont_filter属性没有设置（默认为False）和 已经存在则去重</div><div class="line">        # 不push进队列</div><div class="line">        self.df.log(request, self.spider)</div><div class="line">        return False</div><div class="line">    # 先尝试将Request push进磁盘队列</div><div class="line">    dqok = self._dqpush(request)</div><div class="line">    if dqok:</div><div class="line">          # 如果成功 则在记录一次状态</div><div class="line">        self.stats.inc_value(&apos;scheduler/enqueued/disk&apos;, spider=self.spider)</div><div class="line">    else:</div><div class="line">          # 不能添加进磁盘队列则会添加进内存队列</div><div class="line">        self._mqpush(request)</div><div class="line">        self.stats.inc_value(&apos;scheduler/enqueued/memory&apos;, spider=self.spider)</div><div class="line">    self.stats.inc_value(&apos;scheduler/enqueued&apos;, spider=self.spider)</div><div class="line">    return True</div><div class="line"> </div><div class="line">def next_request(self):</div><div class="line">  &quot;&quot;&quot;从队列中获取一个Request&quot;&quot;&quot;</div><div class="line">      # 优先从内存队列中获取</div><div class="line">    request = self.mqs.pop()</div><div class="line">    if request:</div><div class="line">        self.stats.inc_value(&apos;scheduler/dequeued/memory&apos;, spider=self.spider)</div><div class="line">    else:</div><div class="line">          # 不能获取的时候从磁盘队列队里获取</div><div class="line">        request = self._dqpop()</div><div class="line">        if request:</div><div class="line">            self.stats.inc_value(&apos;scheduler/dequeued/disk&apos;, spider=self.spider)</div><div class="line">    if request:</div><div class="line">        self.stats.inc_value(&apos;scheduler/dequeued&apos;, spider=self.spider)</div><div class="line">    # 将获取的到Request返回给Engine</div><div class="line">    return request</div><div class="line"> </div><div class="line">def __len__(self):</div><div class="line">    return len(self.dqs) + len(self.mqs) if self.dqs else len(self.mqs)</div><div class="line"> </div><div class="line">def _dqpush(self, request):</div><div class="line">    if self.dqs is None:</div><div class="line">        return</div><div class="line">    try:</div><div class="line">        reqd = request_to_dict(request, self.spider)</div><div class="line">        self.dqs.push(reqd, -request.priority)</div><div class="line">    except ValueError as e:  # non serializable request</div><div class="line">        if self.logunser:</div><div class="line">            msg = (&quot;Unable to serialize request: %(request)s - reason:&quot;</div><div class="line">                   &quot; %(reason)s - no more unserializable requests will be&quot;</div><div class="line">                   &quot; logged (stats being collected)&quot;)</div><div class="line">            logger.warning(msg, &#123;&apos;request&apos;: request, &apos;reason&apos;: e&#125;,</div><div class="line">                           exc_info=True, extra=&#123;&apos;spider&apos;: self.spider&#125;)</div><div class="line">            self.logunser = False</div><div class="line">        self.stats.inc_value(&apos;scheduler/unserializable&apos;,</div><div class="line">                             spider=self.spider)</div><div class="line">        return</div><div class="line">    else:</div><div class="line">        return True</div><div class="line"> </div><div class="line">def _mqpush(self, request):</div><div class="line">    self.mqs.push(request, -request.priority)</div><div class="line"> </div><div class="line">def _dqpop(self):</div><div class="line">    if self.dqs:</div><div class="line">        d = self.dqs.pop()</div><div class="line">        if d:</div><div class="line">            return request_from_dict(d, self.spider)</div><div class="line"> </div><div class="line">def _newmq(self, priority):</div><div class="line">    return self.mqclass()</div><div class="line"> </div><div class="line">def _newdq(self, priority):</div><div class="line">    return self.dqclass(join(self.dqdir, &apos;p%s&apos; % priority))</div><div class="line"> </div><div class="line">def _dq(self):</div><div class="line">    activef = join(self.dqdir, &apos;active.json&apos;)</div><div class="line">    if exists(activef):</div><div class="line">        with open(activef) as f:</div><div class="line">            prios = json.load(f)</div><div class="line">    else:</div><div class="line">        prios = ()</div><div class="line">    q = self.pqclass(self._newdq, startprios=prios)</div><div class="line">    if q:</div><div class="line">        logger.info(&quot;Resuming crawl (%(queuesize)d requests scheduled)&quot;,</div><div class="line">                    &#123;&apos;queuesize&apos;: len(q)&#125;, extra=&#123;&apos;spider&apos;: self.spider&#125;)</div><div class="line">    return q</div><div class="line"> </div><div class="line">def _dqdir(self, jobdir):</div><div class="line">    if jobdir:</div><div class="line">        dqdir = join(jobdir, &apos;requests.queue&apos;)</div><div class="line">        if not exists(dqdir):</div><div class="line">            os.makedirs(dqdir)</div><div class="line">        return dqdir</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/20/Median-of-Two-Sorted-Arrays/" itemprop="url">
-                  Median of Two Sorted Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-20T18:40:32+08:00" content="2016-12-20">
-              2016-12-20
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/20/Median-of-Two-Sorted-Arrays/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/20/Median-of-Two-Sorted-Arrays/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/scrapy/" rel="tag">#scrapy</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Median of Two Sorted Arrays<br>There are two sorted arrays nums1 and nums2 of size m and n respectively.<br>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
-<p>比较重要的题要求时间复杂度为O(log(m+n))遍历的方法只能做到O(M+N)所以是不行的    考虑转换求解方式用分治法或者二分法   变成寻找第k小数的问题  通过递归的方法寻找比较两个数组的中位数大小将大的数组的右半部分扔掉将小的数组的左半部分扔掉  递归到最后得到最终的中位数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">double findKth(int a[], int m, int b[], int n, int k)  </div><div class="line">&#123;  </div><div class="line">    //always assume that m is equal or smaller than n  </div><div class="line">    if (m &gt; n)  </div><div class="line">        return findKth(b, n, a, m, k);  </div><div class="line">    if (m == 0)  </div><div class="line">        return b[k - 1];  </div><div class="line">    if (k == 1)  </div><div class="line">        return min(a[0], b[0]);  </div><div class="line">    //divide k into two parts  </div><div class="line">    int pa = min(k / 2, m), pb = k - pa;  </div><div class="line">    if (a[pa - 1] &lt; b[pb - 1])  </div><div class="line">        return findKth(a + pa, m - pa, b, n, k - pa);  </div><div class="line">    else if (a[pa - 1] &gt; b[pb - 1])  </div><div class="line">        return findKth(a, m, b + pb, n - pb, k - pb);  </div><div class="line">    else  </div><div class="line">        return a[pa - 1];  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">class Solution  </div><div class="line">&#123;  </div><div class="line">public:  </div><div class="line">    double findMedianSortedArrays(int A[], int m, int B[], int n)  </div><div class="line">    &#123;  </div><div class="line">        int total = m + n;  </div><div class="line">        if (total &amp; 0x1)  </div><div class="line">            return findKth(A, m, B, n, total / 2 + 1);  </div><div class="line">        else  </div><div class="line">            return (findKth(A, m, B, n, total / 2)  </div><div class="line">                    + findKth(A, m, B, n, total / 2 + 1)) / 2;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/12/20/Median-of-Two-Sorted-Arrays/" rel="next" title="Median of Two Sorted Arrays">
+                <i class="fa fa-chevron-left"></i> Median of Two Sorted Arrays
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/12/19/爬虫项目/" itemprop="url">
-                  爬虫项目
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-19T21:28:47+08:00" content="2016-12-19">
-              2016-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
+              <a href="/2016/12/25/django/" rel="prev" title="django项目">
+                django项目 <i class="fa fa-chevron-right"></i>
+              </a>
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/19/爬虫项目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/19/爬虫项目/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <pre><code>jdshangcheng爬虫
-</code></pre><p>该爬虫<br>我们主要爬取的页面为商品评论页面所以我们要对要爬取页面的代码进行结构进行分析我们以京东商城的笔记本电脑商品页面为主要的爬取对象下面对这个页面进行代码分析  <a href="https://list.jd.com/list.html?cat=670%2C671%2C672&amp;go=0" target="_blank" rel="external">https://list.jd.com/list.html?cat=670%2C671%2C672&amp;go=0</a> 。这是该页面的URL通过观察我们发现该URL有许多分类和其他页面不同的地方主要在于cat后面的属性值每一种商品对应着不同的属性值那我们在爬虫设计方面就可以结构化每次只更改cat后面的属性来选择不同的商品。<br>我们通过浏览器自带的开发者工具来解析此页面通过分析我们发现商品信息主要存储在<li class="gl-item"> 标签，中其中包括商品的ID，详情页链接，商品名字，店铺名字这信息。我们通过爬虫就能获取这部分信息我们想要的评论信息并不在这一页中我们跳转到详情页查看页面代码在这一页中我们发现了商品评论信息，但在这一页中商品评论信息是动态加载的我们不能直接获取，所以我们只能继续查看接下来的评论页面代码通过浏览器进行查看发现在加载过程中有一个js文件用通过该文件我们发现了CommentsCount这个方法我们打开这个文件发现里面的文件是json格式的代码我们通过解析这部分代码得到我们想要得到的数据在我们要分析这个过程通过爬虫来实现内容的获得。</li></p>
-<p>主要代码在在github中。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/19/add-two-number/" itemprop="url">
-                  add two number
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-19T19:52:54+08:00" content="2016-12-19">
-              2016-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/19/add-two-number/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/19/add-two-number/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="post-spread">
       
         
-          
-            <p>add two number<br> You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8</p>
-<p>思路：两个链表的遍历和用变量控制进位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"> class Solution &#123;  </div><div class="line">public:  </div><div class="line">    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) &#123;  </div><div class="line">        int carry = 0;  </div><div class="line">        ListNode* tail = new ListNode(0);  </div><div class="line">        ListNode* ptr = tail;  </div><div class="line">          </div><div class="line">        while(l1 != NULL || l2 != NULL)&#123;  </div><div class="line">            int val1 = 0;  </div><div class="line">            if(l1 != NULL)&#123;  </div><div class="line">                val1 = l1-&gt;val;  </div><div class="line">                l1 = l1-&gt;next;  </div><div class="line">            &#125;  </div><div class="line">              </div><div class="line">            int val2 = 0;  </div><div class="line">            if(l2 != NULL)&#123;  </div><div class="line">                val2 = l2-&gt;val;  </div><div class="line">                l2 = l2-&gt;next;  </div><div class="line">            &#125;  </div><div class="line">              </div><div class="line">            int tmp = val1 + val2 + carry;  </div><div class="line">            ptr-&gt;next = new ListNode(tmp % 10);  </div><div class="line">            carry = tmp / 10;  </div><div class="line">            ptr = ptr-&gt;next;  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        if(carry == 1)&#123;  </div><div class="line">            ptr-&gt;next = new ListNode(1);  </div><div class="line">        &#125;  </div><div class="line">        return tail-&gt;next;  </div><div class="line">    &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
-          
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -867,6 +413,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/22/scrapy-redis源码/"
+           data-title="scrapy-redis源码理解" data-url="http://lhr0323.com/2016/12/22/scrapy-redis源码/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -886,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -975,6 +538,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1094,6 +668,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
