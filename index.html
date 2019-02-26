@@ -631,7 +631,7 @@
               
                 
                 <a class="post-title-link" href="/2016/12/19/最大子串/" itemprop="url">
-                  最大子串
+                  爬虫项目
                 </a>
               
             
@@ -658,8 +658,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
                   </a>
                 </span>
 
@@ -700,13 +700,10 @@
       
         
           
-            <p>最大子串<br> Longest Substring Without Repeating Characters<br>Given a string, find the length of the longest substring without repeating characters.</p>
-<p>Examples:</p>
-<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
-<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
-<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
-<p>Subscribe to see which companies asked this question</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;  </div><div class="line">public:  </div><div class="line">    int lengthOfLongestSubstring(string s) &#123;  </div><div class="line">        int n = s.length();  </div><div class="line">        int i = 0, j = 0; //i是候选字符串的起点， j是候选字符串的终点。  </div><div class="line">        int max_length = 0;  </div><div class="line">        int cur_length = 0;  </div><div class="line">        bool exist[256] = &#123; false &#125;;  </div><div class="line">        while (j &lt; n) &#123;  </div><div class="line">            if (!exist[s[j]]) &#123;  </div><div class="line">                exist[s[j]] = true;  //遍历过，记录为true  </div><div class="line">                j++;  </div><div class="line">            &#125; else &#123;  </div><div class="line">                while(s[i]!= s[j]) &#123;  </div><div class="line">                    exist[s[i]] = false;   </div><div class="line">                    //新候选字串从第一个重复字符(当s[i] == s[j]时候的i)的后一位开始算，之前的i不算，等效于没有被扫描到，所以设为false.  </div><div class="line">                    i++;  </div><div class="line">                &#125;  </div><div class="line">                i++;  </div><div class="line">                j++;  </div><div class="line">            &#125;  </div><div class="line">            cur_length = j - i;  </div><div class="line">            max_length = max_length &gt; cur_length ? max_length : cur_length;  </div><div class="line">        &#125;  </div><div class="line">        return max_length;  </div><div class="line">    &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+            <pre><code>jdshangcheng爬虫
+</code></pre><p>该爬虫<br>我们主要爬取的页面为商品评论页面所以我们要对要爬取页面的代码进行结构进行分析我们以京东商城的笔记本电脑商品页面为主要的爬取对象下面对这个页面进行代码分析  <a href="https://list.jd.com/list.html?cat=670%2C671%2C672&amp;go=0" target="_blank" rel="external">https://list.jd.com/list.html?cat=670%2C671%2C672&amp;go=0</a> 。这是该页面的URL通过观察我们发现该URL有许多分类和其他页面不同的地方主要在于cat后面的属性值每一种商品对应着不同的属性值那我们在爬虫设计方面就可以结构化每次只更改cat后面的属性来选择不同的商品。<br>我们通过浏览器自带的开发者工具来解析此页面通过分析我们发现商品信息主要存储在<li class="gl-item"> 标签，中其中包括商品的ID，详情页链接，商品名字，店铺名字这信息。我们通过爬虫就能获取这部分信息我们想要的评论信息并不在这一页中我们跳转到详情页查看页面代码在这一页中我们发现了商品评论信息，但在这一页中商品评论信息是动态加载的我们不能直接获取，所以我们只能继续查看接下来的评论页面代码通过浏览器进行查看发现在加载过程中有一个js文件用通过该文件我们发现了CommentsCount这个方法我们打开这个文件发现里面的文件是json格式的代码我们通过解析这部分代码得到我们想要得到的数据在我们要分析这个过程通过爬虫来实现内容的获得。</li></p>
+<p>主要代码在在github中。</p>
+
           
         
       
