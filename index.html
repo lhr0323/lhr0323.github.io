@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/25/数字游戏/" itemprop="url">
-                  数字游戏
+                <a class="post-title-link" href="/2016/12/25/django/" itemprop="url">
+                  django项目
                 </a>
               
             
@@ -296,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/竞赛/" itemprop="url" rel="index">
-                    <span itemprop="name">竞赛</span>
+                  <a href="/categories/django/" itemprop="url" rel="index">
+                    <span itemprop="name">django</span>
                   </a>
                 </span>
 
@@ -312,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/25/数字游戏/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/数字游戏/" itemprop="commentsCount"></span>
+                <a href="/2016/12/25/django/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/django/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,11 +338,7 @@
       
         
           
-            <p>问题描述<br>　　栋栋正在和同学们玩一个数字游戏。  </p>
-<p>　　游戏的规则是这样的：栋栋和同学们一共n个人围坐在一圈。栋栋首先说出数字1。接下来，坐在栋栋左手边的同学要说下一个数字2。再下面的一个同学要从上一个同学说的数字往下数两个数说出来，也就是说4。下一个同学要往下数三个数，说7。依次类推。  </p>
-<p>　　为了使数字不至于太大，栋栋和同学们约定，当在心中数到 k-1 时，下一个数字从0开始数。例如，当k=13时，栋栋和同学们报出的前几个数依次为：<br>　　1, 2, 4, 7, 11, 3, 9, 3, 11, 7。  </p>
-<p>　　游戏进行了一会儿，栋栋想知道，到目前为止，他所有说出的数字的总和是多少。<br>输入格式<br>　　输入的第一行包含三个整数 n,k,T，其中 n 和 k 的意义如上面所述，T 表示到目前为止栋栋一共说出的数字个数。<br>输出格式<br>　　输出一行，包含一个整数，表示栋栋说出所有数的和。<br>样例输入<br>3 13 3<br>样例输出<br>17<br>样例说明<br>　　栋栋说出的数依次为1, 7, 9，和为17。<br>数据规模和约定<br>　　1 &lt; n,k,T &lt; 1,000,000；<br>*/  </p>
-<p>分析     每个人说的数字最后是有规律的将输出的规律建一个数组然后从里面寻找到某人说的数字。<br>注意 K为奇数和偶数时建表方式不同当K为奇数时表为K当K为偶数时表为2K这是出错最多的地方一定要注意。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int main()&#123;</div><div class="line">	int i,n,z,k,t,j=1,g=0,sum=0;</div><div class="line">	int s[100000];</div><div class="line">	printf(&quot;请输入多少人，数是几,循环几轮&quot;); </div><div class="line">	scanf(&quot;%d %d %d&quot;,&amp;n,&amp;k,&amp;t); </div><div class="line">	//偶数和奇数制表的方式不一样奇数是K次就循环而偶数是2K次才循环；</div><div class="line">	if(k%2==0)&#123;</div><div class="line">		z=2*k;</div><div class="line">	&#125; else&#123;</div><div class="line">	  z=k;</div><div class="line">	&#125;</div><div class="line">	s[0]=1;</div><div class="line">	do&#123;</div><div class="line">	j+=g;</div><div class="line">	if(j&gt;k)&#123;</div><div class="line">		j=j%k;</div><div class="line">	&#125;</div><div class="line">	s[g]=j;	</div><div class="line">	g++;</div><div class="line">	</div><div class="line">	&#125;while(g&lt;=z);</div><div class="line">	 k=0;</div><div class="line">	for(i=0;i&lt;t;i++)&#123;</div><div class="line">		sum+=s[k];</div><div class="line">		k=k+n;</div><div class="line">		if(k&gt;g-1)</div><div class="line">		k-=g-1;</div><div class="line">	&#125; </div><div class="line">	printf(&quot;%d&quot;,sum);</div></pre></td></tr></table></figure></p>
+            <p> django项目：在线教育平台<br>通过使用django实现了完整的在线教育平台 首先使用的是django1.9 python2.7  IDE:pycharm<br> 1开发环境搭建 使用的是ython虚拟virtualenv和 virtualenvwrapper<br>2进行需求分析 该系统已将给出前端页面 主要工作就是设计出django app， 然后对每个app设计相应的django model数据表。系统共有四个app， users处理用户相关；courses处理课程相关；organization处理课程机构相关；operation处理用户操作相关  然后是数据库使用的是MySQL数据库navicat管理。<br>3使用xadmin进行后台管理安装配置xadmin<br>4功能实现完成用户注册相关的功能， 包括登录、注册、找回密码等功能， 本章会深入session和cookie的机制以及通过django form对表单进行验证。注册和找回密码会通过图片验证码验证以及通过邮箱验证方式完成<br>5完成课程机构的相关功能， 本章会开始django的templates模板继承机制实现模板的重用。 本章包括分页、筛选、收藏等功能， 会讲到如何通过modelform对表单进行验证和保存。<br>6完成课程相关功能模块开发， 包括课程列表功能实现、课程详情页展示、 课程评论功能和相关课程推荐等功能实现<br>7个人中心和系统全局功能实现、 全局功能包括全局导航栏功能和全局搜索功能的实现。 个人中心功能包括个人信息的展示和修改、 头像修改、密码修改、邮箱修改。 邮箱修改需要通过邮箱验证才能修改。 用户学习的课程展示、 用户的收藏展示以及删除收藏功能，最后是用户的个人消息展示。<br>8 nginx+uwsgi完成线上生成环境的原理  mysql的访问权限以及端口绑定配置，以及将本地数据库直接传输到生成环境 nginx配置一个虚拟主机，及完成域名和ip地址的转发、 nginx的静态文件代理  uwsgi的配置文件的基本配置  。代码上传到github中。</p>
 
           
         
@@ -913,7 +909,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -922,7 +918,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
